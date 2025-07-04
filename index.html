@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ficha de Treino</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ficha de Treino Interativa</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -12,6 +13,7 @@
             padding: 20px;
             color: #e0e0e0;
         }
+
         .container {
             max-width: 900px;
             background: #1e1e1e;
@@ -21,12 +23,14 @@
             margin: auto;
             text-align: center;
         }
+
         h1 {
             color: #76ff03;
             font-size: 28px;
             text-transform: uppercase;
             margin-bottom: 10px;
         }
+
         .section {
             margin-top: 20px;
             padding: 15px;
@@ -34,6 +38,7 @@
             background: #242424;
             box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
         }
+
         .section h2 {
             color: #64dd17;
             border-bottom: 3px solid #64dd17;
@@ -41,11 +46,13 @@
             font-size: 22px;
             text-transform: uppercase;
         }
+
         ul {
             list-style: none;
             padding: 0;
             text-align: left;
         }
+
         li {
             background: #333;
             margin: 8px 0;
@@ -53,20 +60,31 @@
             border-radius: 5px;
             font-size: 16px;
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: space-between;
+            gap: 10px;
         }
-        label {
+
+        .exercise-name {
+            color: #76ff03;
             cursor: pointer;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
         }
+
+        .btn-img {
+            background: #64dd17;
+            border: none;
+            padding: 6px 10px;
+            border-radius: 5px;
+            color: #121212;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
         input[type="checkbox"] {
             transform: scale(1.5);
-            margin-left: 10px;
             accent-color: #76ff03;
         }
+
         .reset-button {
             display: block;
             width: 100%;
@@ -79,83 +97,395 @@
             border-radius: 5px;
             cursor: pointer;
         }
+
         .reset-button:hover {
             background-color: #b71c1c;
         }
-        @media (max-width: 600px) {
-            body {
-                padding: 10px;
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            padding-top: 80px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .modal-content {
+            background-color: #1e1e1e;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #444;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .modal-content img {
+            width: 100%;
+            max-width: 400px;
+            height: 300px;
+            object-fit: contain;
+            border-radius: 10px;
+            margin: auto;
+            display: block;
+        }
+
+        .close {
+            color: #fff;
+            float: right;
+            font-size: 62px;
+            border: 1px solid lawngreen;
+            font-weight: bold;
+            cursor: pointer;
+            width: 70px;
+            height: 70px;
+            margin: 5px;
+        }
+
+        .section ul li .exercise-name {
+            flex: 1;
+        }
+
+        .section ul li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            flex-wrap: nowrap;
+        }
+
+        .exercise-name {
+            flex: 1;
+        }
+
+        @media (max-width: 480px) {
+            .section ul li {
+                flex-wrap: wrap;
+                justify-content: flex-start;
             }
-            .container {
-                padding: 20px;
+
+            .exercise-name {
+                flex: 1 1 100%;
+                margin-bottom: 6px;
             }
-            h1 {
-                font-size: 24px;
-            }
-            .section h2 {
-                font-size: 18px;
-            }
-            li {
-                font-size: 14px;
+
+            input[type="checkbox"],
+            .btn-img {
+                flex: 0 0 auto;
+                margin-right: 10px;
             }
         }
     </style>
 </head>
+
 <body>
     <div class="container">
-        <h1>Ficha de Treino</h1>
-        
+        <h1>Ficha de Treino Semanal</h1>
+
         <div class="section">
-            <h2>Treino A - Peito, Ombros, Tríceps e Core</h2>
+            <h2>🟢 Segunda – Pernas completas + Esteira</h2>
             <ul>
-                <li><label><span>Supino reto com barra – 3x12</span><input type="checkbox"></label></li>
-                <li><label><span>Supino inclinado na máquina – 3x12</span><input type="checkbox"></label></li>
-                <li><label><span>Crucifixo reto com halteres – 3x12</span><input type="checkbox"></label></li>
-                <li><label><span>Desenvolvimento com halteres (sentado) – 3x12</span><input type="checkbox"></label></li>
-                <li><label><span>Face Pull na polia – 3x12</span><input type="checkbox"></label></li>
-                <li><label><span>Tríceps corda na polia – 3x12</span><input type="checkbox"></label></li>
-                <li><label><span>Tríceps francês com halteres – 3x12</span><input type="checkbox"></label></li>
-                <li><label><span>Prancha abdominal – 3x30s</span><input type="checkbox"></label></li>
-                <li><label><span>Bird Dog – 3x12</span><input type="checkbox"></label></li>
+                <li>
+                    <span class="exercise-name">Agachamento livre com halteres – 4x12</span>
+                    <input type="checkbox" onchange="salvarStatus(this, 'agachamento-com-halteres')">
+                    <button class="btn-img" onclick="abrirModal('agachamento-com-halteres')">Ver</button>
+                </li>
+                <li>
+                    <span class="exercise-name">Leg press – 4x12</span>
+                    <input type="checkbox" onchange="salvarStatus(this, 'leg-press')">
+                    <button class="btn-img" onclick="abrirModal('leg-press')">Ver</button>
+                </li>
+                <li>
+                    <span class="exercise-name">Stiff com halteres – 4x12</span>
+                    <input type="checkbox" onchange="salvarStatus(this, 'stiff')">
+                    <button class="btn-img" onclick="abrirModal('stiff')">Ver</button>
+                </li>
+                <li>
+                    <span class="exercise-name">Cadeira extensora – 3x15</span>
+                    <input type="checkbox" onchange="salvarStatus(this, 'cadeira-extensora')">
+                    <button class="btn-img" onclick="abrirModal('cadeira-extensora')">Ver</button>
+                </li>
+                <li>
+                    <span class="exercise-name">Cadeira flexora – 3x15</span>
+                    <input type="checkbox" onchange="salvarStatus(this, 'cadeira-flexora')">
+                    <button class="btn-img" onclick="abrirModal('cadeira-flexora')">Ver</button>
+                </li>
+                <li>
+                    <span class="exercise-name">Afundo com halteres – 3x12 por perna</span>
+                    <input type="checkbox" onchange="salvarStatus(this, 'afundo')">
+                    <button class="btn-img" onclick="abrirModal('afundo')">Ver</button>
+                </li>
+            </ul>
+            <p>➡️ Cardio: Esteira 30 minutos moderado</p>
+        </div>
+
+        <div class="section">
+            <h2>🔵 Terça – Peito + Tríceps + Esteira</h2>
+            <ul>
+                <li>
+                    <span class="exercise-name">Supino reto – 4x12</span>
+                    <input type="checkbox" onchange="salvarStatus(this, 'supino-reto')">
+                    <button class="btn-img" onclick="abrirModal('supino-reto')">Ver</button>
+                </li>
+                <li>
+                    <span class="exercise-name">Supino inclinado – 4x12</span>
+                    <input type="checkbox" onchange="salvarStatus(this, 'supino-inclinado')">
+                    <button class="btn-img" onclick="abrirModal('supino-inclinado')">Ver</button>
+                </li>
+                <li>
+                    <span class="exercise-name">Crossover no cabo – 3x15</span>
+                    <input type="checkbox" onchange="salvarStatus(this, 'crossover-cabo')">
+                    <button class="btn-img" onclick="abrirModal('crossover-cabo')">Ver</button>
+                </li>
+                <li>
+                    <span class="exercise-name">Flexão de braço na maquina – 3x máx.</span>
+                    <input type="checkbox" onchange="salvarStatus(this, 'flexao-braco')">
+                    <button class="btn-img" onclick="abrirModal('flexao-braco')">Ver</button>
+                </li>
+                <li>
+                    <span class="exercise-name">Tríceps corda – 4x15</span>
+                    <input type="checkbox" onchange="salvarStatus(this, 'triceps-corda')">
+                    <button class="btn-img" onclick="abrirModal('triceps-corda')">Ver</button>
+                </li>
+                <li>
+                    <span class="exercise-name">Tríceps testa – 3x12</span>
+                    <input type="checkbox" onchange="salvarStatus(this, 'triceps-testa')">
+                    <button class="btn-img" onclick="abrirModal('triceps-testa')">Ver</button>
+                </li>
+            </ul>
+            <p>➡️ Cardio: Esteira 30 minutos (leve/moderado)</p>
+        </div>
+
+        <div class="section">
+            <h2>🟡 Quarta – Costas + Bíceps + Esteira</h2>
+            <ul>
+                <li>
+                    <span class="exercise-name">Puxada frontal – 4x12</span>
+                    <input type="checkbox" onchange="salvarStatus(this, 'puxada-frontal')">
+                    <button class="btn-img" onclick="abrirModal('puxada-frontal')">Ver</button>
+                </li>
+                <li>
+                    <span class="exercise-name">Remada baixa – 4x12</span>
+                    <input type="checkbox" onchange="salvarStatus(this, 'remada-baixa')">
+                    <button class="btn-img" onclick="abrirModal('remada-baixa')">Ver</button>
+                </li>
+                <li>
+                    <span class="exercise-name">Remada unilateral – 3x12</span>
+                    <input type="checkbox" onchange="salvarStatus(this, 'remada-unilateral')">
+                    <button class="btn-img" onclick="abrirModal('remada-unilateral')">Ver</button>
+                </li>
+                <li>
+                    <span class="exercise-name">Pulldown – 3x12</span>
+                    <input type="checkbox" onchange="salvarStatus(this, 'pulldown')">
+                    <button class="btn-img" onclick="abrirModal('pulldown')">Ver</button>
+                </li>
+                <li>
+                    <span class="exercise-name">Rosca direta W – 4x15</span>
+                    <input type="checkbox" onchange="salvarStatus(this, 'rosca-direta-w')">
+                    <button class="btn-img" onclick="abrirModal('rosca-direta-w')">Ver</button>
+                </li>
+                <li>
+                    <span class="exercise-name">Rosca alternada – 3x12</span>
+                    <input type="checkbox" onchange="salvarStatus(this, 'rosca-alternada')">
+                    <button class="btn-img" onclick="abrirModal('rosca-alternada')">Ver</button>
+                </li>
+            </ul>
+            <p>➡️ Cardio: Esteira 30 minutos moderado</p>
+        </div>
+
+        <div class="section">
+            <h2>🔴 Quinta – Ombros + Trapézio + Esteira</h2>
+            <ul>
+                <li>
+                    <span class="exercise-name">Desenvolvimento com halteres – 4x12</span>
+                    <input type="checkbox" onchange="salvarStatus(this, 'desenvolvimento-halteres')">
+                    <button class="btn-img" onclick="abrirModal('desenvolvimento-halteres')">Ver</button>
+                </li>
+                <li>
+                    <span class="exercise-name">Elevação lateral – 3x15</span>
+                    <input type="checkbox" onchange="salvarStatus(this, 'elevacao-lateral')">
+                    <button class="btn-img" onclick="abrirModal('elevacao-lateral')">Ver</button>
+                </li>
+                <li>
+                    <span class="exercise-name">Elevação frontal – 3x15</span>
+                    <input type="checkbox" onchange="salvarStatus(this, 'elevacao-frontal')">
+                    <button class="btn-img" onclick="abrirModal('elevacao-frontal')">Ver</button>
+                </li>
+                <li>
+                    <span class="exercise-name">Remada alta – 4x12</span>
+                    <input type="checkbox" onchange="salvarStatus(this, 'remada-alta')">
+                    <button class="btn-img" onclick="abrirModal('remada-alta')">Ver</button>
+                </li>
+                <li>
+                    <span class="exercise-name">Encolhimento para trapézio – 3x20</span>
+                    <input type="checkbox" onchange="salvarStatus(this, 'encolhimento-trapezio')">
+                    <button class="btn-img" onclick="abrirModal('encolhimento-trapezio')">Ver</button>
+                </li>
+                <li>
+                    <span class="exercise-name">Arnold press – 3x12</span>
+                    <input type="checkbox" onchange="salvarStatus(this, 'arnold-press')">
+                    <button class="btn-img" onclick="abrirModal('arnold-press')">Ver</button>
+                </li>
+            </ul>
+            <p>➡️ Cardio: Esteira 30 minutos moderado</p>
+        </div>
+
+        <div class="section">
+            <h2>🟣 Sexta – Peito + Tríceps + Esteira</h2>
+            <p>Treino em circuito (3 a 5 rodadas):</p>
+            <ul>
+                <li>
+                    <span class="exercise-name">Supino reto – 4x12</span>
+                    <input type="checkbox" onchange="salvarStatus(this, 'supino-reto')">
+                    <button class="btn-img" onclick="abrirModal('supino-reto')">Ver</button>
+                </li>
+                <li>
+                    <span class="exercise-name">Supino inclinado – 4x12</span>
+                    <input type="checkbox" onchange="salvarStatus(this, 'supino-inclinado')">
+                    <button class="btn-img" onclick="abrirModal('supino-inclinado')">Ver</button>
+                </li>
+                <li>
+                    <span class="exercise-name">Crossover no cabo – 3x15</span>
+                    <input type="checkbox" onchange="salvarStatus(this, 'crossover-cabo')">
+                    <button class="btn-img" onclick="abrirModal('crossover-cabo')">Ver</button>
+                </li>
+                <li>
+                    <span class="exercise-name">Flexão de braço – 3x máx.</span>
+                    <input type="checkbox" onchange="salvarStatus(this, 'flexao-braco')">
+                    <button class="btn-img" onclick="abrirModal('flexao-braco')">Ver</button>
+                </li>
+                <li>
+                    <span class="exercise-name">Tríceps corda – 4x15</span>
+                    <input type="checkbox" onchange="salvarStatus(this, 'triceps-corda')">
+                    <button class="btn-img" onclick="abrirModal('triceps-corda')">Ver</button>
+                </li>
+                <li>
+                    <span class="exercise-name">Tríceps testa – 3x12</span>
+                    <input type="checkbox" onchange="salvarStatus(this, 'triceps-testa')">
+                    <button class="btn-img" onclick="abrirModal('triceps-testa')">Ver</button>
+                </li>
+            </ul>
+            <p>➡️ HIIT na esteira:</p>
+            <p>30 segundos rápido / 1 minuto leve – por 20 minutos</p>
+        </div>
+
+        <div class="section">
+            <h2>🟠 Sábado – Cardio longo + Mobilidade (Aeróbico intenso)</h2>
+            <ul>
+                <li>
+                    <span class="exercise-name">Caminhada/corrida contínua: 45 a 60 min</span>
+                </li>
+                <li>
+                    <span class="exercise-name">Pode alternar com: bicicleta, escada, elíptico</span>
+                </li>
+                <li>
+                    <span class="exercise-name">Finalize com alongamento e mobilidade</span>
+                </li>
             </ul>
         </div>
-        
+
         <div class="section">
-            <h2>Treino B - Costas, Bíceps e Panturrilhas</h2>
+            <h2>💤 Domingo – Descanso total ou leve</h2>
             <ul>
-                <li><label><span>Puxada alta na máquina – 3x12</span><input type="checkbox"></label></li>
-                <li><label><span>Remada baixa na máquina – 3x12</span><input type="checkbox"></label></li>
-                <li><label><span>Remada unilateral – 3x12</span><input type="checkbox"></label></li>
-                <li><label><span>Pullover na polia – 3x12</span><input type="checkbox"></label></li>
-                <li><label><span>Rosca direta com barra W – 3x12</span><input type="checkbox"></label></li>
-                <li><label><span>Rosca martelo – 3x12</span><input type="checkbox"></label></li>
-                <li><label><span>Panturrilha no leg press – 3x15</span><input type="checkbox"></label></li>
-                <li><label><span>Panturrilha em pé – 3x15</span><input type="checkbox"></label></li>
-                <li><label><span>Superman no solo – 3x12</span><input type="checkbox"></label></li>
+                <li>
+                    <span class="exercise-name">Caminhada leve ou alongamento se quiser</span>
+                </li>
             </ul>
         </div>
-        
-        <div class="section">
-            <h2>Treino C - Pernas, Glúteos e Core</h2>
-            <ul>
-                <li><label><span>Leg press 45° – 3x12</span><input type="checkbox"></label></li>
-                <li><label><span>Cadeira extensora – 3x12</span><input type="checkbox"></label></li>
-                <li><label><span>Cadeira flexora – 3x12</span><input type="checkbox"></label></li>
-                <li><label><span>Agachamento búlgaro – 3x12</span><input type="checkbox"></label></li>
-                <li><label><span>Abdutor na máquina – 3x12</span><input type="checkbox"></label></li>
-                <li><label><span>Glúteo no cross – 3x12</span><input type="checkbox"></label></li>
-                <li><label><span>Elevação pélvica – 3x15</span><input type="checkbox"></label></li>
-                <li><label><span>Abdominal oblíquo – 3x12</span><input type="checkbox"></label></li>
-                <li><label><span>Alongamento guiado – 3x30s</span><input type="checkbox"></label></li>
-            </ul>
-        </div>
-        
-        <button class="reset-button" onclick="desmarcarTudo()">Desmarcar Tudo</button>
+
+        <button class="reset-button" onclick="resetarFicha()">Desmarcar Tudo</button>
     </div>
+
+    <div id="gifModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="fecharModal()">&times;</span>
+            <img id="gifExercicio" src="" alt="Exercício">
+        </div>
+    </div>
+
     <script>
-        function desmarcarTudo() {
-            document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => checkbox.checked = false);
+        const exercicios = [
+            'agachamento-com-halteres',
+            'leg-press',
+            'stiff',
+            'cadeira-extensora',
+            'cadeira-flexora',
+            'afundo',
+
+            'supino-reto',
+            'supino-inclinado',
+            'crossover-cabo',
+            'flexao-braco',
+            'triceps-corda',
+            'triceps-testa',
+
+            'puxada-frontal',
+            'remada-baixa',
+            'remada-unilateral',
+            'pulldown',
+            'rosca-direta-w',
+            'rosca-alternada',
+
+            'desenvolvimento-halteres',
+            'elevacao-lateral',
+            'elevacao-frontal',
+            'remada-alta',
+            'encolhimento-trapezio',
+            'arnold-press'
+
+        ];
+
+
+        function salvarStatus(checkbox, nome) {
+            localStorage.setItem(nome, checkbox.checked);
+            verificarConclusao();
         }
+
+        function carregarStatus() {
+            exercicios.forEach(nome => {
+                const check = document.querySelector(`input[type='checkbox'][onchange*="${nome}"]`);
+                const salvo = localStorage.getItem(nome);
+                if (salvo !== null) check.checked = salvo === 'true';
+            });
+        }
+
+        function resetarFicha() {
+            exercicios.forEach(nome => localStorage.removeItem(nome));
+            document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+        }
+
+        function verificarConclusao() {
+            const todos = exercicios.every(nome => localStorage.getItem(nome) === 'true');
+            if (todos) {
+                alert('Parabéns! Você concluiu todos os exercícios! A ficha será reiniciada.');
+                resetarFicha();
+            }
+        }
+
+        function abrirModal(nome) {
+            const modal = document.getElementById('gifModal');
+            const img = document.getElementById('gifExercicio');
+            img.src = `image/${nome}.gif`;
+            modal.style.display = "block";
+        }
+
+        function fecharModal() {
+            document.getElementById('gifModal').style.display = "none";
+        }
+
+        window.onclick = function (event) {
+            const modal = document.getElementById('gifModal');
+            if (event.target == modal) modal.style.display = "none";
+        }
+
+        window.onload = carregarStatus;
     </script>
 </body>
+
 </html>
